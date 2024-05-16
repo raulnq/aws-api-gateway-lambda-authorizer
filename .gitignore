@@ -9,6 +9,8 @@
 *.user
 *.userosscache
 *.sln.docstates
+.aws-sam/
+*.toml
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

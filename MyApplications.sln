@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLambda", "src\MyLambda\MyLambda.csproj", "{82B1047B-7C09-40EF-BFAD-EA6B93BAD1CD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyAuthorizerLambda", "src\MyAuthorizerLambda\MyAuthorizerLambda.csproj", "{3ADEE047-D2BF-434D-9F30-5EE920B6BB9D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6500B997-7701-4338-9CDA-2C96A294AD4E}"
+	ProjectSection(SolutionItems) = preProject
+		template.yml = template.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{82B1047B-7C09-40EF-BFAD-EA6B93BAD1CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82B1047B-7C09-40EF-BFAD-EA6B93BAD1CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82B1047B-7C09-40EF-BFAD-EA6B93BAD1CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82B1047B-7C09-40EF-BFAD-EA6B93BAD1CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ADEE047-D2BF-434D-9F30-5EE920B6BB9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ADEE047-D2BF-434D-9F30-5EE920B6BB9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ADEE047-D2BF-434D-9F30-5EE920B6BB9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ADEE047-D2BF-434D-9F30-5EE920B6BB9D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

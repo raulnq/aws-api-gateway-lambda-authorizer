@@ -1,0 +1,56 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  SAM
+
+Resources:
+  MyApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Prod
+      Auth:
+        Authorizers:
+          MyAuthorizerLambda:
+            FunctionArn: !GetAtt MyAuthorizerFunction.Arn
+
+  MyApiFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Timeout: 60
+      MemorySize: 512
+      Tracing: Active
+      Runtime: dotnet8
+      Architectures:
+        - x86_64    
+      Handler: MyLambda::MyLambda.Function::FunctionHandler
+      CodeUri: ./src/MyLambda/
+      Events:
+        Get:
+          Type: Api
+          Properties:
+            RestApiId: !Ref MyApi
+            Path: /hello-world
+            Method: get
+            Auth:
+              Authorizer: MyAuthorizerLambda
+
+  MyAuthorizerFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Environment:
+        Variables:
+          TENANT_ID: "<MY_TENANT_ID>"
+          CLIENT_ID: "<MY_CLIENT_ID>"
+      Timeout: 60
+      MemorySize: 512
+      Tracing: Active
+      Runtime: dotnet8
+      Architectures:
+        - x86_64    
+      Handler: MyAuthorizerLambda::MyAuthorizerLambda.Function::FunctionHandler
+      CodeUri: ./src/MyAuthorizerLambda/
+
+Outputs:
+  MyApiEndpoint:
+    Description: "API endpoint"
+    Value: !Sub "https://${MyApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello-world"
